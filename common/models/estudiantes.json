@@ -1,0 +1,55 @@
+{
+  "name": "estudiantes",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": false,
+  "properties": {
+    "id_estudiante": {
+      "type": "number",
+      "id": true,
+      "generated": true,
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellidos": {
+      "type": "string",
+      "required": true
+    },
+    "edad": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "direccion": {
+      "type": "embedsOne",
+      "model": "direccion",
+      "property": "direccion",
+      "options": {
+        "forceId": false,
+        "validate": true
+      }
+    },
+    "materias": {
+      "type": "belongsTo",
+      "model": "materias",
+      "foreignKey": "materiasId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

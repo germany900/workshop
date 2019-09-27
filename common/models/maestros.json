@@ -1,0 +1,50 @@
+{
+  "name": "maestros",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": false,
+  "properties": {
+    "id_maestro": {
+      "type": "number",
+      "id": true,
+      "generated": true,
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "edad": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "carrera": {
+      "type": "belongsTo",
+      "model": "carrera",
+      "foreignKey": ""
+    },
+    "materias": {
+      "type": "belongsTo",
+      "model": "materias",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
